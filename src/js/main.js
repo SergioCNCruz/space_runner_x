@@ -13,4 +13,5 @@ function setup() {
 function draw() {
     background(0, 0, 0);
     ship.draw();
+    ship.move();
 }

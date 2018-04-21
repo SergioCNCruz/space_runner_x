@@ -1,4 +1,4 @@
-let ship = null;
+let ship, stage = null;
 let asteroids = [];
 
 function preload() {
@@ -6,7 +6,8 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(800, 500);
+    stage = createCanvas(1000, 500);
+    stage.parent("stage");
     background(0, 0, 0);
     ship = new Ship(0, height/2);
 

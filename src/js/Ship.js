@@ -28,25 +28,25 @@ class Ship {
 
     move() {
         if (keyIsDown(LEFT_ARROW)) {
-            if(this.x > 5) {
+            if(this.x > this.width) {
                 this.x -= 5;
             }
         }
 
         if (keyIsDown(RIGHT_ARROW)) {
-            if(this.x < 695) {
+            if(this.x < (width - this.width)) {
                 this.x += 5;
             }
         }
 
         if (keyIsDown(UP_ARROW)) {
-            if (this.y > 5) {
+            if (this.y > this.height) {
                 this.y -= 5;
             }
         }
 
         if (keyIsDown(DOWN_ARROW)) {
-            if (this.y < 495) {
+            if (this.y < (height - this.height)) {
                 this.y += 5;
             }
         }

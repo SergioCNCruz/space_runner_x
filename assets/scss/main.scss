@@ -1,0 +1,17 @@
+@import "../../vendor/bootstrap-sass/assets/stylesheets/bootstrap";
+
+$background: #E2E2E2;
+
+body{
+  background-color: $background;
+}
+header{
+  @extend .container-fluid;
+}
+section#stage{
+  @extend .container;
+  width: 1050px;
+}
+footer{
+  @extend .container-fluid;
+}

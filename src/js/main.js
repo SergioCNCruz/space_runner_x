@@ -1,5 +1,6 @@
 let ship, stage = null;
 let asteroids = [];
+let stars = [];
 
 function preload() {
 
@@ -15,15 +16,25 @@ function setup() {
         asteroids.push(new Asteroid());
     }
 
+    for(let a = 0; a < 100;a++) {
+        stars.push(new Star());
+    }
+
+
 }
 
 function draw() {
     background(0, 0, 0);
-    ship.draw();
-    ship.move();
+
+    for(let star of stars) {
+        star.draw();
+    }
 
     for(let asteroid of asteroids) {
         asteroid.draw();
         asteroid.move();
     }
+
+    ship.draw();
+    ship.move();
 }

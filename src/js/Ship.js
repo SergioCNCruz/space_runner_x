@@ -9,21 +9,19 @@ class Ship {
     draw() {
         stroke(204, 204, 204);
         strokeWeight(12);
-        line(this.x + 20, this.y - 40, this.x + 60, this.y + 20);
-        line(this.x + 20, this.y + 50, this.x + 50, this.y);
+        line(this.x - this.width*0.75, this.y - 50, this.x, this.y);
+        line(this.x - this.width*0.75, this.y + 50, this.x, this.y);
 
         noStroke();
         fill(255, 255, 255);
-        rect(this.x, this.y + 50, 60, 15, 60);
-        rect(this.x, this.y - 50, 60, 15, 60);
+        rect(this.x - (this.width), this.y - 60, 60, 15, 60);
+        rect(this.x - (this.width), this.y + 45, 60, 15, 60);
 
         fill(255, 255, 255);
-        ellipse(this.x + 40, this.y + 8, this.width, this.height);
-        triangle(this.x + 45,this.y - 16,this.x + 45,this.y + 32,this.x + 120,this.y + 8)
+        ellipse(this.x, this.y, this.width, this.height);
 
-
-        fill(0, 0, 0, 40);
-        ellipse(this.x + 60, this.y + 8, this.width - (this.width/3), this.height/2);
+        fill(0, 0, 0, 50);
+        ellipse(this.x + (this.width*0.35), this.y, this.width*0.25, this.height*0.5);
     }
 
     move() {

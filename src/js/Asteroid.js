@@ -25,6 +25,7 @@ class Asteroid{
 
         for(let crater of this.craters) {
             crater.draw();
+            crater.intersect(this.craters);
         }
     }
 

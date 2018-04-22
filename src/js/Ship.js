@@ -8,20 +8,20 @@ class Ship {
     }
 
     draw() {
-        stroke(179, 179, 179);
+        stroke(166, 166, 166);
         strokeWeight(12);
         line(this.x - this.width*0.8, this.y - 50, this.x + 5, (this.y + this.y_axis));
         line(this.x - this.width*0.8, this.y + 50, this.x + 5, (this.y + this.y_axis));
 
-        stroke(204, 204, 204);
-        strokeWeight(12);
-        line(this.x - this.width*0.8, this.y - 55, this.x + 5, (this.y + this.y_axis) + 5);
-        line(this.x - this.width*0.8, this.y + 55, this.x + 5, (this.y + this.y_axis) - 5);
-
         noStroke();
-        fill(166, 166, 166);
+        fill(155, 155, 155);
         rect(this.x - (this.width), this.y - (57 + this.y_axis), 70, 15, 5);
         rect(this.x - (this.width), this.y + (42 + this.y_axis*-1), 70, 15, 5);
+
+        stroke(204, 204, 204);
+        strokeWeight(12);
+        line(this.x - this.width*0.6, this.y - 50, this.x + 5, (this.y + this.y_axis) + 5);
+        line(this.x - this.width*0.6, this.y + 50, this.x + 5, (this.y + this.y_axis) - 5);
 
         noStroke();
         fill(255, 255, 255);
@@ -31,7 +31,7 @@ class Ship {
         fill(255, 255, 255);
         ellipse(this.x, this.y, this.width, this.height);
 
-        fill(0, 0, 0, 50);
+        fill(0, 0, 0, 60);
         ellipse(this.x + (this.width*0.35), this.y, this.width*0.25, this.height*0.5);
         this.y_axis = 0;
     }

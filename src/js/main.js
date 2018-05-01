@@ -7,8 +7,8 @@ function preload() {
 }
 
 function setup() {
-    stage = createCanvas(1000, 500);
-    stage.parent("stage");
+    stage = createCanvas(windowWidth, windowHeight);
+    /* stage.parent("stage"); */
     background(0, 0, 0);
     ship = new Ship(50, height/2);
 
@@ -37,4 +37,8 @@ function draw() {
 
     ship.draw();
     ship.move();
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }

@@ -4,13 +4,16 @@ $background: #E2E2E2;
 
 body{
   background-color: $background;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 header{
   @extend .container-fluid;
 }
 section#stage{
   @extend .container;
-  width: 1050px;
+  height: 100%;
 }
 footer{
   @extend .container-fluid;

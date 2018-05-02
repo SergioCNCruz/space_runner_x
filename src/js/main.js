@@ -1,42 +1,20 @@
-let ship, stage = null;
-let asteroids = [];
-let stars = [];
+let stage = null;
+let auth = new Auth(config);
+let game = new Game(auth);
 
 function preload() {
-
 }
 
 function setup() {
     stage = createCanvas(windowWidth, windowHeight);
     /* stage.parent("stage"); */
     background(0, 0, 0);
-    ship = new Ship(50, height/2);
-
-    for(let a = 0; a < 8;a++) {
-        asteroids.push(new Asteroid());
-    }
-
-    for(let a = 0; a < 100;a++) {
-        stars.push(new Star());
-    }
-
-
+    auth.authenticate(game);
 }
 
 function draw() {
     background(0, 0, 0);
-
-    for(let star of stars) {
-        star.draw();
-    }
-
-    for(let asteroid of asteroids) {
-        asteroid.draw();
-        asteroid.move();
-    }
-
-    ship.draw();
-    ship.move();
+    game.run();
 }
 
 function windowResized() {

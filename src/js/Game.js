@@ -29,28 +29,28 @@ class Game{
     }
 
     pause(){
-
+        this.status = false
     }
 
     restart(){
-
+        this.status = true
     }
 
     run(){
-        if(this.status) {
-            for(let star of this.stars) {
-                star.draw();
-            }
+        for(let star of this.stars) {
+            star.draw(this.status);
+        }
 
-            for(let asteroid of this.asteroids) {
-                asteroid.draw();
+        for(let asteroid of this.asteroids) {
+            asteroid.draw();
+            if(this.status) {
                 asteroid.move();
             }
+        }
 
-            this.ship.draw();
+        this.ship.draw();
+        if(this.status) {
             this.ship.move();
         }
     }
-
-
 }

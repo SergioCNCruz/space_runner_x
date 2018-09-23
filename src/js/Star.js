@@ -5,13 +5,15 @@ class Star{
         this.diameter = random(1, 3);
     }
 
-    draw() {
+    draw(move) {
         fill(255, 255, 255);
         ellipse(this.x, this.y, this.diameter);
-        this.x -= 1;
-        if (this.x <= 0) {
-            this.x = width;
-            this.y = random(0, height);
+        if(move) {
+            this.x -= 1;
+            if (this.x <= 0) {
+                this.x = width;
+                this.y = random(0, height);
+            }
         }
     }
 

@@ -1,14 +1,14 @@
 class LifeBar {
     constructor() {
         this.x = 10;
-        this.y = 10;
+        this.y = 60;
         this.width = 450;
-        this.height = 30;
+        this.height = 10;
     }
 
     draw() {
         noStroke();
-        fill(244, 244, 244);
+        fill(255, 255, 255, 90);
         rect(this.x, this.y, this.width, this.height);
     }
 }

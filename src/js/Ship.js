@@ -73,7 +73,7 @@ class Ship {
             let distance = dist(asteroid.x, asteroid.y, this.x, this.y);
             if(distance <= 80) {
                 asteroid.x = width;
-                this.life.width -= 10;
+                this.life.width -= 40;
                 console.log("collision detected!");
             }
         }

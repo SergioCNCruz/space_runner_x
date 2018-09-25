@@ -39,8 +39,18 @@ class Game{
     }
 
     run(){
+        textSize(20);
+        fill(255, 255, 255, 90);
+        text(this.auth.costumer.name, 10, 90);
+
         for(let star of this.stars) {
             star.draw(this.status);
+        }
+
+        if(!this.status) {
+            textSize(100);
+            fill(255, 255, 255, 90);
+            text('PAUSE', ((width*0.5) - 100), ((height*0.5) - 50));
         }
 
         for(let asteroid of this.asteroids) {

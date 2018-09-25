@@ -22,7 +22,6 @@ class Auth{
             firebase.auth().getRedirectResult().then(function(result) {
                 if(result.credential) {
                     auth.createCostumer(result);
-                    this.game.is_authenticated = true;
                 } else {
                     firebase.auth().signInWithRedirect(provider);
                 }
@@ -39,6 +38,7 @@ class Auth{
         this.database = firebase.database();
         this.database.ref("costumers/" + this.costumer.id).set(this.costumer.getData());
         this.game.start();
+        this.game.is_authenticated = true;
     }
 
     createDevCostumer() {

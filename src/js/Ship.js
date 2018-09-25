@@ -5,6 +5,8 @@ class Ship {
         this.width = 50;
         this.height = 50;
         this.y_axis = 0;
+        this.life = new LifeBar();
+
     }
 
     draw() {
@@ -34,6 +36,8 @@ class Ship {
         fill(0, 0, 0, 60);
         ellipse(this.x + (this.width*0.35), this.y, this.width*0.25, this.height*0.5);
         this.y_axis = 0;
+
+        this.life.draw();
     }
 
     move() {
@@ -60,6 +64,17 @@ class Ship {
             if (this.y < (height - this.height)) {
                 this.y += 5;
                 this.y_axis = -5;
+            }
+        }
+    }
+
+    collision_detection(asteroids){
+        for(let asteroid of asteroids) {
+            let distance = dist(asteroid.x, asteroid.y, this.x, this.y);
+            if(distance <= 80) {
+                asteroid.x = width;
+                this.life.width -= 10;
+                console.log("collision detected!");
             }
         }
     }

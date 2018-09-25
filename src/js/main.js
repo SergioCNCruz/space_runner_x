@@ -1,7 +1,6 @@
 let stage = null;
 let auth = new Auth(config, false);
 let game = new Game(auth);
-let life_bar = new LifeBar();
 function preload() {
 }
 
@@ -15,7 +14,6 @@ function setup() {
 function draw() {
     background(0, 0, 0);
     game.run();
-    life_bar.draw();
 }
 
 function windowResized() {

@@ -52,6 +52,7 @@ class Game{
 
         this.ship.draw();
         if(this.status) {
+            this.ship.collision_detection(this.asteroids);
             this.ship.move();
         }
     }

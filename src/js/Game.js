@@ -39,9 +39,11 @@ class Game{
     }
 
     run(){
-        textSize(20);
-        fill(255, 255, 255, 90);
-        text(this.auth.costumer.name, 10, 90);
+        if(this.auth.costumer) {
+            textSize(20);
+            fill(255, 255, 255, 90);
+            text(this.auth.costumer.name, 10, 90);
+        }
 
         for(let star of this.stars) {
             star.draw(this.status);

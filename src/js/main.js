@@ -8,6 +8,7 @@ function setup() {
     stage = createCanvas(windowWidth, windowHeight);
     /* stage.parent("stage"); */
     background(0, 0, 0);
+    game.load();
     auth.authenticate(game);
 }
 

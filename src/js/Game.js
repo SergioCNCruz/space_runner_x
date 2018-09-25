@@ -1,16 +1,16 @@
 class Game{
     constructor(auth){
         this.auth = auth;
-        this.ship = new Ship(50, 100);
         this.asteroids = [];
         this.stars = [];
         this.score = 100;
         this.status = false;
         this.is_authenticated = false;
+        this.started = false;
     }
 
     load(){
-
+        this.ship = new Ship(width, height);
     }
 
     start(){
@@ -36,29 +36,30 @@ class Game{
     }
 
     restart(){
-        this.status = true
+        this.started = true;
+        if(this.ship.life.status) {
+            this.status = true
+        } else {
+            this.reset();
+        }
+    }
+
+    reset(){
+        this.ship.y = (height*0.5);
+
+        for(let asteroid of this.asteroids) {
+            asteroid.reset();
+        }
+
+        this.ship.reset();
+        this.status = true;
     }
 
     run(){
         if(this.is_authenticated) {
-            textSize(32);
-            fill(255, 255, 255, 90);
-            text('SPACE RUNNER X', 10, 40);
-
-            if(this.auth.costumer) {
-                textSize(20);
-                fill(255, 255, 255, 90);
-                text(this.auth.costumer.name, 10, 90);
-            }
 
             for(let star of this.stars) {
                 star.draw(this.status);
-            }
-
-            if(!this.status) {
-                textSize(100);
-                fill(255, 255, 255, 90);
-                text('PAUSE', ((width*0.5) - 100), ((height*0.5) - 50));
             }
 
             for(let asteroid of this.asteroids) {
@@ -69,9 +70,40 @@ class Game{
             }
 
             this.ship.draw();
+
             if(this.status) {
                 this.ship.collision_detection(this.asteroids);
                 this.ship.move();
+            }
+
+            if(!this.status && this.ship.life.status) {
+                textSize(100);
+                fill(33, 150, 243, 90);
+                let txt = 'PAUSE';
+
+                if(!this.started) {
+                    txt = 'START';
+                }
+
+                text(txt, ((width*0.5) - 140), ((height*0.5) - 30));
+            }
+
+            textSize(32);
+            fill(255, 255, 255, 90);
+            text('SPACE RUNNER X', 10, 40);
+
+
+            if(!this.ship.life.status) {
+                this.status = false;
+                textSize(100);
+                fill(33, 150, 243, 90);
+                text('GAME OVER', ((width*0.3) - 50), ((height*0.5) - 50));
+            }
+
+            if(this.auth.costumer) {
+                textSize(20);
+                fill(255, 255, 255, 90);
+                text(this.auth.costumer.name, 10, 90);
             }
         }
     }

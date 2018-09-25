@@ -1,12 +1,18 @@
 class Ship {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
+    constructor(width, height) {
+        this.sheight = height;
+        this.swidth = width;
+        this.reset();
+    }
+
+    reset(){
+        this.x = 60;
+        this.y = (this.sheight*0.5);
+        console.log(this.height);
         this.width = 50;
         this.height = 50;
         this.y_axis = 0;
         this.life = new LifeBar();
-
     }
 
     draw() {
@@ -72,9 +78,8 @@ class Ship {
         for(let asteroid of asteroids) {
             let distance = dist(asteroid.x, asteroid.y, this.x, this.y);
             if(distance <= 80) {
-                asteroid.x = width;
-                this.life.width -= 40;
-                console.log("collision detected!");
+                asteroid.reset();
+                this.life.hit();
             }
         }
     }

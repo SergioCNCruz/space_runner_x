@@ -3,18 +3,18 @@ class Asteroid{
         this.diameter = random(80, 100);
         this.direction = random(-1, 1);
         this.craters = [];
-        this.set();
+        this.reset();
 
-        for (let c = 0; c < 7; c++) {
+        for (let c = 0; c < 12; c++) {
             this.craters.push(new Crater(this));
         }
     }
 
-    set() {
+    reset() {
         this.x = width + random(0, width/2);
-        //this.x = (width/2);
+
         this.y = random(0, height);
-        this.speed = random(2, 5);
+        this.speed = random(6, 14);
 
     }
 
@@ -32,7 +32,7 @@ class Asteroid{
     move() {
         this.x -= this.speed;
         if(this.x <= -this.diameter) {
-            this.set();
+            this.reset();
         }
 
         this.y += this.direction;

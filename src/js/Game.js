@@ -13,6 +13,8 @@ class Game{
     }
 
     start(){
+        this.ship.y = (height*0.5);
+
         for(let a = 0; a < 8;a++) {
             this.asteroids.push(new Asteroid());
         }
@@ -20,7 +22,7 @@ class Game{
         for(let a = 0; a < 100;a++) {
             this.stars.push(new Star());
         }
-        this.status = true;
+        this.status = false;
     }
 
     over(){

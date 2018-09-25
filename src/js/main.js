@@ -1,5 +1,5 @@
 let stage = null;
-let auth = new Auth(config, false);
+let auth = new Auth(config, true);
 let game = new Game(auth);
 function preload() {
 }

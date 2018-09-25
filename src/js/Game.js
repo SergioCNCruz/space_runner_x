@@ -6,6 +6,7 @@ class Game{
         this.stars = [];
         this.score = 100;
         this.status = false;
+        this.is_authenticated = false;
     }
 
     load(){
@@ -39,33 +40,39 @@ class Game{
     }
 
     run(){
-        if(this.auth.costumer) {
-            textSize(20);
+        if(this.is_authenticated) {
+            textSize(32);
             fill(255, 255, 255, 90);
-            text(this.auth.costumer.name, 10, 90);
-        }
+            text('SPACE RUNNER X', 10, 40);
 
-        for(let star of this.stars) {
-            star.draw(this.status);
-        }
-
-        if(!this.status) {
-            textSize(100);
-            fill(255, 255, 255, 90);
-            text('PAUSE', ((width*0.5) - 100), ((height*0.5) - 50));
-        }
-
-        for(let asteroid of this.asteroids) {
-            asteroid.draw();
-            if(this.status) {
-                asteroid.move();
+            if(this.auth.costumer) {
+                textSize(20);
+                fill(255, 255, 255, 90);
+                text(this.auth.costumer.name, 10, 90);
             }
-        }
 
-        this.ship.draw();
-        if(this.status) {
-            this.ship.collision_detection(this.asteroids);
-            this.ship.move();
+            for(let star of this.stars) {
+                star.draw(this.status);
+            }
+
+            if(!this.status) {
+                textSize(100);
+                fill(255, 255, 255, 90);
+                text('PAUSE', ((width*0.5) - 100), ((height*0.5) - 50));
+            }
+
+            for(let asteroid of this.asteroids) {
+                asteroid.draw();
+                if(this.status) {
+                    asteroid.move();
+                }
+            }
+
+            this.ship.draw();
+            if(this.status) {
+                this.ship.collision_detection(this.asteroids);
+                this.ship.move();
+            }
         }
     }
 }

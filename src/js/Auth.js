@@ -22,6 +22,7 @@ class Auth{
             firebase.auth().getRedirectResult().then(function(result) {
                 if(result.credential) {
                     auth.createCostumer(result);
+                    this.game.is_authenticated = true;
                 } else {
                     firebase.auth().signInWithRedirect(provider);
                 }
@@ -43,5 +44,6 @@ class Auth{
     createDevCostumer() {
         this.costumer = new Costumer('Sérgio C. N. Cruz', 'sergiocncruz@gmail.com', '123213213', 'faketoken');
         this.game.start();
+        this.game.is_authenticated = true;
     }
 }

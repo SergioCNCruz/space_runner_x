@@ -14,9 +14,7 @@ function setup() {
 function draw() {
     background(0, 0, 0);
     game.run();
-    textSize(32);
-    fill(255, 255, 255, 90);
-    text('SPACE RUNNER X', 10, 40);}
+}
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
